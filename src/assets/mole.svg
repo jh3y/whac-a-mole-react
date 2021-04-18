@@ -1,0 +1,65 @@
+<svg width="201" height="250" viewBox="0 0 201 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="101" cy="223" rx="100" ry="25" fill="#C4C4C4"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="1" y="198" width="200" height="50">
+<ellipse cx="101" cy="223" rx="100" ry="25" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0)">
+<ellipse cx="101" cy="235" rx="100" ry="25" fill="black"/>
+</g>
+<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="201" height="250">
+<path d="M200.935 0H0.935269V223.467C0.935269 235.673 47.7068 250 100.935 250C153.164 250 200.935 236.673 200.935 222.467V0Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask1)">
+<path d="M101.5 55C54.5558 55 16.5 93.0558 16.5 140V305H186.5V140C186.5 93.0558 148.444 55 101.5 55Z" fill="#C4C4C4"/>
+<mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="16" y="55" width="171" height="250">
+<path d="M101.5 55C54.5558 55 16.5 93.0558 16.5 140V305H186.5V140C186.5 93.0558 148.444 55 101.5 55Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask2)">
+</g>
+<mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="16" y="55" width="171" height="250">
+<path d="M101.5 55C54.5558 55 16.5 93.0558 16.5 140V305H186.5V140C186.5 93.0558 148.444 55 101.5 55Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask3)">
+<rect x="46.5" y="194" width="110" height="123" rx="55" fill="#F3ECEC"/>
+</g>
+<circle cx="54" cy="123" r="7" fill="#323232"/>
+<circle cx="149" cy="123" r="7" fill="#323232"/>
+<path d="M48.3431 117.343C48.7337 116.953 49.3668 116.953 49.7574 117.343L59.6569 127.243C60.0474 127.633 60.0474 128.266 59.6569 128.657C59.2663 129.047 58.6332 129.047 58.2426 128.657L48.3431 118.757C47.9526 118.367 47.9526 117.734 48.3431 117.343Z" fill="black"/>
+<path d="M59.6569 117.343C60.0474 117.734 60.0474 118.367 59.6569 118.757L49.7574 128.657C49.3668 129.047 48.7337 129.047 48.3431 128.657C47.9526 128.266 47.9526 127.633 48.3431 127.243L58.2426 117.343C58.6332 116.953 59.2663 116.953 59.6569 117.343Z" fill="black"/>
+<path d="M154.657 117.343C155.047 117.734 155.047 118.367 154.657 118.757L144.757 128.657C144.367 129.047 143.734 129.047 143.343 128.657C142.953 128.266 142.953 127.633 143.343 127.243L153.243 117.343C153.633 116.953 154.266 116.953 154.657 117.343Z" fill="black"/>
+<path d="M154.657 128.657C154.266 129.047 153.633 129.047 153.243 128.657L143.343 118.757C142.953 118.367 142.953 117.734 143.343 117.343C143.734 116.953 144.367 116.953 144.757 117.343L154.657 127.243C155.047 127.633 155.047 128.266 154.657 128.657Z" fill="black"/>
+<mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="61" y="121" width="81" height="50">
+<ellipse cx="101.5" cy="146" rx="40" ry="25" fill="#F3ECEC"/>
+</mask>
+<g mask="url(#mask4)">
+<ellipse cx="101.5" cy="146" rx="40" ry="25" fill="#E2E0E0"/>
+<ellipse cx="101.5" cy="142" rx="40" ry="25" fill="#F3ECEC"/>
+</g>
+<line x1="33.0512" y1="140.054" x2="69.0539" y2="141.949" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
+<line x1="134.631" y1="150.151" x2="167.651" y2="154.869" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
+<line x1="69.6705" y1="147.145" x2="34.1454" y2="152.829" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
+<line x1="168.029" y1="141.028" x2="134.528" y2="141.971" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="101.5" cy="130" rx="10" ry="6" fill="#FFC6C6"/>
+<path d="M57 74.5C57 78.6421 53.1944 82 48.5 82C43.8056 82 40 78.6421 40 74.5C40 70.3579 43.8056 67 48.5 67C53.1944 67 57 70.3579 57 74.5Z" fill="#C4C4C4"/>
+<path d="M59.3535 81.4131C53.6354 80.4477 49.8944 74.3675 50.9978 67.8325C52.1011 61.2976 57.6309 56.7826 63.349 57.748C69.067 58.7134 72.808 64.7937 71.7047 71.3286C70.6014 77.8635 65.0715 82.3785 59.3535 81.4131Z" fill="#C4C4C4"/>
+<circle cx="54" cy="123" r="12" fill="#EBFCF9" fill-opacity="0.5" stroke="black" stroke-width="4"/>
+<circle cx="149" cy="123" r="12" fill="#EBFCF9" fill-opacity="0.5" stroke="black" stroke-width="4"/>
+<path d="M66 123C66 123 80 117 102.5 117C125 117 137 123 137 123" stroke="black" stroke-width="4"/>
+<mask id="mask5" mask-type="alpha" maskUnits="userSpaceOnUse" x="44" y="113" width="20" height="20">
+<circle cx="54" cy="123" r="10" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask5)">
+<rect x="58.0061" y="95" width="4.7221" height="54" transform="rotate(26.395 58.0061 95)" fill="#F12E2E"/>
+<rect x="63.0061" y="98" width="2.40476" height="54" transform="rotate(26.395 63.0061 98)" fill="#F12E2E"/>
+</g>
+<path d="M58 100.273C58 102.683 43.5778 103 31.8824 103C20.1869 103 10 102.455 10 101.364C10 98.9537 27.2457 97 38.9412 97C50.6366 97 58 97.8628 58 100.273Z" fill="#EF2E2E"/>
+<rect x="33" y="95" width="136" height="8" fill="#EF2E2E"/>
+<mask id="mask6" mask-type="alpha" maskUnits="userSpaceOnUse" x="23" y="47" width="157" height="57">
+<path d="M100.5 47C72 47 30 64.5 23 103.5H79.5H125.5H180C174.5 60.5 129 47 100.5 47Z" fill="#423F3F"/>
+</mask>
+<g mask="url(#mask6)">
+<path d="M-9 47H211V104H121.5V90.5H83V104H-9V47Z" fill="#373737"/>
+</g>
+<ellipse cx="101.5" cy="47.5" rx="6" ry="2.5" fill="#EF2E2E"/>
+</g>
+</svg>

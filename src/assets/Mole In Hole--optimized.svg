@@ -1,0 +1,55 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="100" cy="175" rx="100" ry="25" fill="#C4C4C4"/>
+  <mask id="a" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="150" width="200" height="50">
+    <ellipse cx="100" cy="175" rx="100" ry="25" fill="#C4C4C4"/>
+  </mask>
+  <g mask="url(#a)">
+    <ellipse cx="100" cy="187" rx="100" ry="25" fill="#000"/>
+  </g>
+  <mask id="b" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+    <path d="M200 0H0v175.58C0 188.764 44.772 200 100 200s100-11.249 100-24.42V0z" fill="#2896FB"/>
+  </mask>
+  <g mask="url(#b)">
+    <path d="M100.5 16c-46.944 0-85 38.056-85 85v165h170V101c0-46.944-38.056-85-85-85z" fill="#C4C4C4"/>
+    <mask id="c" mask-type="alpha" maskUnits="userSpaceOnUse" x="15" y="16" width="171" height="250">
+      <path d="M100.5 16c-46.944 0-85 38.056-85 85v165h170V101c0-46.944-38.056-85-85-85z" fill="#C4C4C4"/>
+    </mask>
+    <g mask="url(#c)">
+      <rect x="45.5" y="155" width="110" height="123" rx="55" fill="#F3ECEC"/>
+    </g>
+    <circle cx="53" cy="84" r="7" fill="#323232"/>
+    <circle cx="148" cy="84" r="7" fill="#323232"/>
+    <path d="M47.343 78.343a1 1 0 0 1 1.414 0l9.9 9.9a1 1 0 0 1-1.414 1.414l-9.9-9.9a1 1 0 0 1 0-1.414z" fill="#000"/>
+    <path d="M58.657 78.343a1 1 0 0 1 0 1.414l-9.9 9.9a1 1 0 0 1-1.414-1.414l9.9-9.9a1 1 0 0 1 1.414 0zm95 0a1 1 0 0 1 0 1.414l-9.9 9.9a1 1 0 1 1-1.414-1.414l9.9-9.9a1 1 0 0 1 1.414 0z" fill="#000"/>
+    <path d="M153.657 89.657a1 1 0 0 1-1.414 0l-9.9-9.9a1 1 0 0 1 1.414-1.414l9.9 9.9a1 1 0 0 1 0 1.414z" fill="#000"/>
+    <mask id="d" mask-type="alpha" maskUnits="userSpaceOnUse" x="60" y="82" width="81" height="50">
+      <ellipse cx="100.5" cy="107" rx="40" ry="25" fill="#F3ECEC"/>
+    </mask>
+    <g mask="url(#d)">
+      <ellipse cx="100.5" cy="107" rx="40" ry="25" fill="#E2E0E0"/>
+      <ellipse cx="100.5" cy="103" rx="40" ry="25" fill="#F3ECEC"/>
+    </g>
+    <path stroke="#9E9E9E" stroke-width="2" stroke-linecap="round" d="m32.051 101.054 36.003 1.895m65.577 8.202 33.02 4.718m-97.98-7.724-35.526 5.684m133.884-11.801-33.501.943"/>
+    <ellipse cx="100.5" cy="91" rx="10" ry="6" fill="#FFC6C6"/>
+    <path d="M56 35.5c0 4.142-3.806 7.5-8.5 7.5S39 39.642 39 35.5c0-4.142 3.806-7.5 8.5-7.5s8.5 3.358 8.5 7.5z" fill="#C4C4C4"/>
+    <path d="M58.353 42.413c-5.718-.965-9.459-7.045-8.355-13.58 1.103-6.535 6.633-11.05 12.351-10.085 5.718.965 9.459 7.046 8.356 13.58-1.104 6.535-6.633 11.05-12.352 10.085z" fill="#C4C4C4"/>
+    <circle cx="53" cy="84" r="12" fill="#EBFCF9" fill-opacity=".5" stroke="#000" stroke-width="4"/>
+    <circle cx="148" cy="84" r="12" fill="#EBFCF9" fill-opacity=".5" stroke="#000" stroke-width="4"/>
+    <path d="M65 84s14-6 36.5-6 34.5 6 34.5 6" stroke="#000" stroke-width="4"/>
+    <mask id="e" mask-type="alpha" maskUnits="userSpaceOnUse" x="43" y="74" width="20" height="20">
+      <circle cx="53" cy="84" r="10" fill="#C4C4C4"/>
+    </mask>
+    <g mask="url(#e)" fill="#F12E2E">
+      <path d="m57.006 56 4.23 2.1-24.006 48.37-4.23-2.1zm5 3 2.154 1.07-24.006 48.37L38 107.37z"/>
+    </g>
+    <path d="M57 61.273C57 63.683 42.578 64 30.882 64 19.187 64 9 63.455 9 62.364 9 59.954 26.246 58 37.941 58 49.637 58 57 58.863 57 61.273z" fill="#EF2E2E"/>
+    <path fill="#EF2E2E" d="M32 56h136v8H32z"/>
+    <mask id="f" mask-type="alpha" maskUnits="userSpaceOnUse" x="22" y="8" width="157" height="57">
+      <path d="M99.5 8C71 8 29 25.5 22 64.5h157C173.5 21.5 128 8 99.5 8z" fill="#423F3F"/>
+    </mask>
+    <g mask="url(#f)">
+      <path d="M-10 8h220v57h-89.5V51.5H82V65h-92V8z" fill="#373737"/>
+    </g>
+    <ellipse cx="100.5" cy="8.5" rx="6" ry="2.5" fill="#EF2E2E"/>
+  </g>
+</svg>
