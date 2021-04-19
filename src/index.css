@@ -1,59 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(hsl(204, 80%, 80%) 0 44%, hsl(98, 40%, 50%) 44%)
-}
-
-.hole {
-  fill: hsl(0, 0%, 12%);
-}
-
-.hole__lip {
-  fill: hsl(38, 20%, 50%);
-}
-
-.mole__feature {
-  fill: hsl(0, 0%, 10%);
-}
-
-.mole__eyes--crossed {
-  display: none;
-}
-
-.specs__lens {
-  fill: hsla(198, 80%, 80%, 0.5);
-  stroke: hsl(200, 25%, 30%);
-}
-
-.cap__accent {
-  fill: hsl(10, 80%, 50%);
-}
-
-.cap__body {
-  fill: hsl(0, 0%, 5%);
-}
-
-.mallet {
-  height: 50px;
-  width: 50px;
-  background: green;
-  pointer-events: none;
-  position: fixed;
-  top: calc(var(--y) * 1px);
-  left: calc(var(--x) * 1px);
-  z-index: 10;
-  transform: translate(-50%, -50%);
-}
-
-.specs__glare {
-  fill: hsla(0, 0%, 100%, 0.5);
-}
-
-.specs__bridge {
-  stroke: hsl(200, 25%, 30%);
+  font-family: 'Fredoka One', cursive;
+  background: hsl(204, 80%, 80%);
 }
 
 .moles {
@@ -63,62 +17,43 @@ body {
   grid-gap: 0 2vmin;
 }
 
-.mole__hole {
-  width: 20vmin;
-  height: 20vmin;
-  overflow: hidden;
-  position: relative;
-}
-
-.mole__body {
-  fill: hsl(var(--hue), 10%, calc(var(--lightness, 65) * 1%));
-}
-
-.mole__white {
-  fill: hsl(0, 0%, 98%);
-}
-
-.mole__whiskers {
-  stroke: hsl(0, 0%, 15%);
-}
-
-.mole__shadow {
-  fill: hsl(210, 16%, 53%);
-}
-
-.mole__nose {
-  fill: hsl(10, 90%, 88%);
-}
-
-.mole {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.mole__whack {
-  height: 100%;
-  width: 100%;
-  border: 0;
-  opacity: 0;
-  transform: translate(0, 0%);
-}
-
-.mole__hole:nth-of-type(4),
-.mole__hole:nth-of-type(5) {
+.moles > *:nth-of-type(4),
+.moles > *:nth-of-type(5) {
   transform: translate(50%, -25%);
 }
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(hsl(204, 80%, 80%) 0 44%, hsl(98, 40%, 50%) 44%);
+}
+
 
 .mute-button {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
+  z-index: 2;
+}
+.mute-button:hover {
+  background: red;
+}
+
+.mute-button:hover ~ .mallet,
+.end-button:hover ~ .mallet {
+  display: none;
 }
 
 .end-button {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  z-index: 2;
 }
 
 .game-info {
@@ -127,4 +62,5 @@ body {
   left: 1rem;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }

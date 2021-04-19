@@ -18,7 +18,7 @@ const Timer = ({ time, interval = 1000, onEnd }) => {
       clearInterval(timerRef.current)
     }
   }, [interval])
-  return <span>{`Time: ${internalTime}`}</span>
+  return <span>{`Time: ${internalTime / 1000}s`}</span>
 }
 
 export default Timer

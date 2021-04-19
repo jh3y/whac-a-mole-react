@@ -1,31 +1,72 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useCallback, useState, useRef } from 'react'
 import gsap from 'gsap'
 import constants from '../../constants'
+import './mole.css'
 
+// This is the centerpiece of the game.
+// It's the most complex component. But don't be scared of it!
 const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
   const [whacked, setWhacked] = useState(false)
   const delayedRef = useRef(null)
   const pointsRef = useRef(points)
   const buttonRef = useRef(null)
   const moleRef = useRef(null)
+  const moleContainerRef = useRef(null)
   const capRef = useRef(null)
   const specsRef = useRef(null)
   const bobRef = useRef(null)
+  const eyesRef = useRef(null)
+  const crossedRef = useRef(null)
 
+  // Use a callback to cache the function and share it between effects.
+  const setMole = useCallback(() => {
+    // Give a 1% chance of getting the "Golden" Mole.
+    if (Math.random() > 0.99) {
+      // Create the "Golden" Mole
+      pointsRef.current = constants.GOLDEN_SCORE
+      // Set the specs and cap as displayed
+      gsap.set([capRef.current, specsRef.current], {
+        display: 'block',
+      })
+      // Set specific colors and that the shades/golden are active
+      gsap.set(moleContainerRef.current, {
+        '--accent': 45,
+        '--shades': 1,
+        '--golden': 1,
+        '--hue': 45,
+        '--lightness': 65,
+      })
+    } else {
+      // Create a "Regular" Mole
+      pointsRef.current = constants.REGULAR_SCORE
+      // Set whether Mole has a cap or specs
+      gsap.set([capRef.current, specsRef.current], {
+        display: () => (Math.random() > 0.5 ? 'block' : 'none'),
+      })
+      // Set random colors for Mole.
+      gsap.set(moleContainerRef.current, {
+        '--accent': gsap.utils.random(0, 359),
+        '--shades': Math.random() > 0.65 ? 1 : 0,
+        '--golden': 0,
+        '--hue':
+          Math.random() > 0.5
+            ? gsap.utils.random(185, 215)
+            : gsap.utils.random(30, 50),
+        '--lightness': gsap.utils.random(45, 75),
+      })
+    }
+  }, [])
+
+  // Use an effect to get the Mole moving
   useEffect(() => {
-    gsap.set([capRef.current, specsRef.current], {
-      display: () => (Math.random() > 0.5 ? 'block' : 'none'),
-    })
+    // Set the Mole position and overlay button to underground
     gsap.set([moleRef.current, buttonRef.current], {
       yPercent: 100,
     })
-    gsap.set(moleRef.current, {
-      '--hue':
-        Math.random() > 0.5
-          ? gsap.utils.random(185, 215)
-          : gsap.utils.random(30, 50),
-      '--lightness': gsap.utils.random(45, 75),
-    })
+    // Set characteristics for the Mole.
+    setMole()
+    // Create the bobbing timeline and store a ref so we can kill it on unmount.
+    // Timeline behavior defined by props
     bobRef.current = gsap.to([buttonRef.current, moleRef.current], {
       yPercent: 0,
       duration: speed,
@@ -39,14 +80,18 @@ const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
         )
       },
     })
+    // Cleanup the timeline on unmount
     return () => {
       bobRef.current.kill()
     }
-  }, [delay, pointsMin, speed])
+  }, [delay, pointsMin, speed, setMole])
 
+  // When a Mole is whacked, animate it underground
+  // Swap out the Mole style, reset it, and speed up the bobbing timeline.
   useEffect(() => {
     if (whacked) {
-      pointsRef.current = 100
+      setMole()
+      // Render something in the body
       bobRef.current.pause()
       gsap.to([moleRef.current, buttonRef.current], {
         yPercent: 100,
@@ -61,18 +106,65 @@ const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
         },
       })
     }
+    // If the delayed restart isn't started and we unmount, it will need cleaning up.
     return () => {
       if (delayedRef.current) delayedRef.current.kill()
     }
-  }, [whacked])
+  }, [whacked, setMole])
 
-  const whack = () => {
-    setWhacked(true)
-    onWhack(pointsRef.current)
+  // To render the score, we don't need React elements.
+  // We can render them straight to the DOM and remove them once they've animated.
+  // Alternatively, we could use a React DOM Portal. However, our element has
+  // a short lifespan and doesn't update, etc.
+  const renderScore = (x, y) => {
+    const SCORE_HOLDER = document.createElement('div')
+    SCORE_HOLDER.className = 'mole__points-holder'
+    const SCORE = document.createElement('div')
+    SCORE.className = 'mole__points'
+    SCORE.innerText = pointsRef.current
+    SCORE_HOLDER.appendChild(SCORE)
+    document.body.appendChild(SCORE_HOLDER)
+    gsap.set(SCORE_HOLDER, {
+      '--angle': gsap.utils.random(-35, 35),
+      '--accent': gsap.utils.random(0, 359),
+    })
+    gsap
+      .timeline({
+        onComplete: () => SCORE_HOLDER.remove(),
+      })
+      .set(SCORE_HOLDER, {
+        left: x,
+        top: y,
+      })
+      .to(SCORE, {
+        yPercent: -100,
+        duration: 0.35,
+      })
+      .to(
+        SCORE,
+        {
+          opacity: 0,
+          duration: 0.1,
+        },
+        '>-0.1'
+      )
   }
 
+  // On Whack, set "whacked" to true.
+  // At the same time, render a score in the appropriate spot
+  // And fire the callback so the Game can track the score.
+  // If the pointsRef is higher than half the golden score
+  // We know it's golden Mole so we can play a different sound.
+  const whack = (e) => {
+    setWhacked(true)
+    renderScore(e.pageX, e.pageY)
+    onWhack(pointsRef.current, pointsRef.current > constants.GOLDEN_SCORE * 0.5)
+  }
+
+  // Much of what is rendered is the Mole SVG and the Hole.
+  // You could do this with images and CSS based on your design.
   return (
-    <div className="mole__hole">
+    <div className="mole__hole" ref={moleContainerRef}>
       <svg
         className="mole"
         viewBox="0 0 200 200"
@@ -88,7 +180,7 @@ const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(101 137) rotate(90) scale(115 90.9302)">
             <stop stopColor="transparent" stopOpacity="0" />
-            <stop offset="1" stopColor="hsla(0, 0%, 10%, 0.35)" />
+            <stop offset="1" stopColor="hsla(var(--hue, 0), 10%, 10%, 0.35)" />
           </radialGradient>
         </defs>
         <g className="mole__ground">
@@ -125,11 +217,11 @@ const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
               rx="55"
               className="mole__white"
             />
-            <g className="mole__eyes">
+            <g className="mole__eyes" ref={eyesRef}>
               <circle className="mole__feature" cx="53" cy="84" r="6" />
               <circle className="mole__feature" cx="148" cy="84" r="6" />
             </g>
-            <g className="mole__eyes--crossed">
+            <g className="mole__eyes--crossed" ref={crossedRef}>
               <path
                 d="M47.343 78.343a1 1 0 0 1 1.414 0l9.9 9.9a1 1 0 0 1-1.414 1.414l-9.9-9.9a1 1 0 0 1 0-1.414z"
                 className="mole__feature"
@@ -178,9 +270,6 @@ const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
                 cy="84"
                 r="12"
                 className="specs__lens"
-                fill="#EBFCF9"
-                fillOpacity=".5"
-                stroke="#000"
                 strokeWidth="4"
               />
               <circle
@@ -188,9 +277,6 @@ const Mole = ({ onWhack, speed, delay, points, pointsMin = 10 }) => {
                 cx="148"
                 cy="84"
                 r="12"
-                fill="#EBFCF9"
-                fillOpacity=".5"
-                stroke="#000"
                 strokeWidth="4"
               />
               <path

@@ -3,8 +3,8 @@ import constants from '../constants'
 
 const generateMoles = () =>
   new Array(constants.MOLES).fill().map(() => ({
-    speed: gsap.utils.random(0.5, 1),
-    delay: gsap.utils.random(0.5, 4),
+    speed: gsap.utils.random(0.5, 2),
+    delay: gsap.utils.random(0.5, 5),
     points: constants.MOLE_SCORE,
   }))
 

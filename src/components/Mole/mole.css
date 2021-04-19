@@ -1,0 +1,100 @@
+.hole {
+  fill: hsl(0, 0%, 12%);
+}
+
+.hole__lip {
+  fill: hsl(38, 20%, 50%);
+}
+
+.mole__feature {
+  fill: hsl(0, 0%, 10%);
+}
+
+.mole__eyes--crossed {
+  display: none;
+}
+
+.specs__lens {
+  fill: hsla(198, 80%, calc((80 - (var(--shades, 0) * 75)) * 1%), calc(0.5 + (var(--shades, 0) * 0.5)));
+  stroke: hsl(var(--accent), 25%, calc((30 - (var(--shades, 0) * 30)) * 1%));
+}
+
+.cap__accent {
+  fill: hsl(var(--accent, 10), 80%, 50%);
+}
+
+.cap__body {
+  fill: hsl(0, 0%, 5%);
+}
+
+.specs__glare {
+  fill: hsla(0, 0%, 100%, calc(0.5 + (var(--shades, 0) * 0.25)));
+}
+
+.specs__bridge {
+  stroke: hsl(var(--accent), 25%, calc((30 - (var(--shades, 0) * 30)) * 1%));
+}
+
+.mole__hole {
+  width: 20vmin;
+  height: 20vmin;
+  position: relative;
+}
+
+.mole__body {
+  fill: hsl(var(--hue), calc((10 + (var(--golden, 0) * 40)) * 1%), calc(var(--lightness, 65) * 1%));
+}
+
+.mole__white {
+  fill: hsl(40, 80%, calc((98 - (var(--golden, 0) * 15)) * 1%));
+}
+
+.mole__whiskers {
+  stroke: hsl(40, calc((0 + (var(--golden, 0) * 35)) * 1%), calc((5 + (var(--golden, 0) * 40)) * 1%));
+}
+
+.mole__shadow {
+  fill: hsl(var(--hue), 16%, 43%);
+}
+
+.mole__nose {
+  fill: hsl(calc(10 + (var(--golden, 0) * 30)), 90%, calc((88 - (var(--golden, 0) * 35)) * 1%));
+}
+
+
+
+.mole {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.mole__whack {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  opacity: 0;
+  transform: translate(0, 0%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mole__points-holder {
+  position: absolute;
+  transform: rotate(calc(var(--angle, 0) * 1deg));
+  transform-origin: 50% 200%;
+  pointer-events: none;
+  position: fixed;
+  z-index: 10;
+}
+
+.mole__points {
+  font-size: clamp(2rem, 8vmin, 18rem);
+  pointer-events: none;
+  font-weight: bold;
+  color: hsl(var(--accent, 0), 90%, 75%);
+  margin: 0;
+  transform: translate(-50%, -200%);
+  -webkit-text-stroke: 0.1vmin hsl(var(--accent), 50%, 35%);
+}
