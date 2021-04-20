@@ -1,0 +1,23 @@
+.title {
+  -webkit-text-stroke: 0.1vmin var(--controls-color);
+  font-size: 6rem;
+  font-weight: bold;
+  color: transparent;
+  background: linear-gradient(40deg, var(--controls), var(--controls-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-align: center;
+  display: inline-block;
+  line-height: 0.75;
+  margin: 0 0 4rem 0;
+  padding: 0;
+  transform: rotate(-15deg);
+}
+
+.title span {
+  display: block;
+}
+.title span:nth-of-type(2) {
+  transform: translate(0, -10%) rotate(15deg);
+  color: var(--controls);
+}

@@ -1,0 +1,7 @@
+.hiscore {
+  text-transform: uppercase;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}

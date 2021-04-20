@@ -14,6 +14,10 @@
   display: none;
 }
 
+.mole__mole {
+  display: none;
+}
+
 .specs__lens {
   fill: hsla(198, 80%, calc((80 - (var(--shades, 0) * 75)) * 1%), calc(0.5 + (var(--shades, 0) * 0.5)));
   stroke: hsl(var(--accent), 25%, calc((30 - (var(--shades, 0) * 30)) * 1%));
@@ -39,6 +43,11 @@
   width: 20vmin;
   height: 20vmin;
   position: relative;
+  cursor: none;
+}
+
+.mole__hole * {
+  cursor: none;
 }
 
 .mole__body {
@@ -60,8 +69,6 @@
 .mole__nose {
   fill: hsl(calc(10 + (var(--golden, 0) * 30)), 90%, calc((88 - (var(--golden, 0) * 35)) * 1%));
 }
-
-
 
 .mole {
   position: absolute;

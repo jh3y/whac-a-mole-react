@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-const useAudio = (src) => {
+
+const useAudio = (src, volume = 1) => {
   const [audio, setAudio] = useState(null)
   useEffect(() => {
-    setAudio(new Audio(src))
+    const AUDIO = new Audio(src)
+    AUDIO.volume = volume
+    setAudio(AUDIO)
   }, [src])
   return {
     play: () => audio.play(),

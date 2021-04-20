@@ -1,26 +1,25 @@
 .mallet {
-  height: 0px;
-  width: 0px;
-  background: green;
+  height: 0;
+  width: 0;
   pointer-events: none;
   position: fixed;
   top: calc(var(--y) * 1px);
   left: calc(var(--x) * 1px);
   z-index: 10;
   transform: translate(-50%, -50%);
+  display: none;
 }
 
 .mallet img {
   position: absolute;
   bottom: 0;
   height: 18vmin;
-  transform: translate(-23%, 10%) rotate(45deg);
   transform-origin: 75% 85%;
   pointer-events: none;
 }
 
 @media (hover: none) {
-  .mallet {
+  .mallet img {
     display: none;
   }
 }

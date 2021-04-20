@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+:root {
+  --controls: hsl(38, 96%, calc((55 + var(--lightness, 0)) * 1%));
+  --controls-secondary: hsl(55, 100%, 50%);
+  --controls-color: hsl(0, 0%, 100%);
+  --sky: hsl(204, 80%, 80%);
+  --grass: hsl(98, 40%, 50%);
+  --dirt: hsl(35, 40%, 20%);
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   min-height: 100vh;
@@ -7,7 +18,7 @@ body {
   justify-content: center;
   overflow: hidden;
   font-family: 'Fredoka One', cursive;
-  background: hsl(204, 80%, 80%);
+  background: var(--sky);
 }
 
 .moles {
@@ -15,6 +26,7 @@ body {
   grid-template-rows: repeat(2, auto);
   grid-template-columns: repeat(3, auto);
   grid-gap: 0 2vmin;
+  cursor: none;
 }
 
 .moles > *:nth-of-type(4),
@@ -23,25 +35,91 @@ body {
 }
 
 main {
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 100vh;
   width: 100vw;
   display: grid;
   place-items: center;
-  background: linear-gradient(hsl(204, 80%, 80%) 0 44%, hsl(98, 40%, 50%) 44%);
+  background: linear-gradient(var(--sky) 0 44%, var(--grass) 44%);
 }
 
+button {
+  --controls: hsl(38, 96%, calc((55 + var(--lightness, 0)) * 1%));
+  background: var(--controls);
+  color: var(--controls-color);
+  padding: 1rem 2rem;
+  font-family: 'Fredoka One', cursive;
+  font-weight: bold;
+  font-size: 1.75rem;
+  border-radius: 1rem;
+  border: 4px var(--controls-color) solid;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+button:hover {
+  --lightness: 5;
+}
+button:active {
+  --lightness: -15;
+}
+
+.celebration {
+  font-size: 4rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.celebration .char {
+  display: inline-block;
+  color: hsl(calc((360 / var(--char-total)) * var(--char-index)), 70%, 65%);
+  animation: jump 0.35s calc(var(--char-index, 0) * -1s) infinite;
+}
+
+.countdown-number {
+  font-size: 10rem;
+  color: var(--dirt);
+  -webkit-text-stroke: 0.25rem var(--controls-color);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 12;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  display: 'none';
+}
+
+@keyframes jump {
+  50% {
+    transform: translate(0, -25%);
+  }
+}
+
+.icon-button {
+  height: 48px;
+  width: 48px;
+  outline: transparent;
+  background: none;
+  border: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  margin: 0;
+}
 
 .mute-button {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 0;
+  right: 0;
   z-index: 2;
-}
-.mute-button:hover {
-  background: red;
 }
 
 .mute-button:hover ~ .mallet,
@@ -51,8 +129,8 @@ main {
 
 .end-button {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
   z-index: 2;
 }
 
@@ -60,7 +138,85 @@ main {
   position: fixed;
   top: 1rem;
   left: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
+  grid-gap: 0.5rem 1rem;
   z-index: 2;
+  background: var(--controls-color);
+  border: 4px solid var(--controls);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 190px;
+}
+
+.info-screen {
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.results {
+  background: var(--controls-color);
+  padding: 2rem;
+  border: 4px solid var(--controls);
+  border-radius: 1rem;
+}
+
+.info-screen > * + * {
+  margin-top: 1rem;
+}
+
+.icon {
+  fill: hsl(35, 50%, 28%);
+  stroke-width: 20px;
+  overflow: visible;
+  height: 24px;
+  width: 24px;
+}
+
+@media(min-width: 768px) {
+  .end-button {
+    top: 1rem;
+    right: 1rem;
+  }
+  .mute-button {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .icon {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.info__text {
+  font-size: clamp(1rem, 5vmin, 2rem);
+  line-height: 1;
+  color: var(--dirt);
+  margin: 0;
+}
+
+.boring-text {
+  font-size: 2rem;
+  text-align: center;
 }
